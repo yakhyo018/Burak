@@ -1,14 +1,24 @@
+// MIT TASK N
+
+function palindromCheck(txt: string) {
+  let reversed = txt.split("").reverse().join("");
+
+  return reversed === txt;
+}
+console.log(palindromCheck("dad"));
+console.log(palindromCheck("brother"));
+
 // MIT TASK M
 
-function getSquareNumbers(arr: number[]) {
-  return arr.map((ele: number) => {
-    return {
-      number: ele,
-      square: (ele *= 2),
-    };
-  });
-}
-console.log(getSquareNumbers([1, 2, 6, 3, 5, 7, 8]));
+// function getSquareNumbers(arr: number[]) {
+//   return arr.map((ele: number) => {
+//     return {
+//       number: ele,
+//       square: (ele *= 2),
+//     };
+//   });
+// }
+// console.log(getSquareNumbers([1, 2, 6, 3, 5, 7, 8]));
 
 // MIT TASK L
 
