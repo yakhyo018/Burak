@@ -1,7 +1,8 @@
 import mongoose, { Schema } from "mongoose";
 import { MemberType, MemberStatus } from "../libs/enums/member.enum";
+import { Member } from "../libs/types/member";
 
-const memberSchema = new Schema(
+const memberSchema = new Schema<Member>(
   {
     memberType: {
       type: String,
@@ -23,14 +24,14 @@ const memberSchema = new Schema(
 
     memberPhone: {
       type: String,
-      select: false,
+      index: { unique: true, sparse: true },
       required: true,
     },
 
     memberPassword: {
       type: String,
       select: false,
-      reqired: true,
+      required: true,
     },
 
     memberAddress: {
