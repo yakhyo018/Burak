@@ -1,12 +1,30 @@
+// MIT TASK O
+
+function calculateSumOfNumbers(arr: any[]): number {
+  let sum = 0;
+
+  for (let item of arr) {
+    if (typeof item === "number") {
+      sum += item;
+    }
+  }
+
+  return sum;
+}
+
+console.log(
+  calculateSumOfNumbers([30, "10", { son: 10 }, true, false, 35, 100]),
+);
+
 // MIT TASK N
 
-function palindromCheck(txt: string) {
-  let reversed = txt.split("").reverse().join("");
+// function palindromCheck(txt: string) {
+//   let reversed = txt.split("").reverse().join("");
 
-  return reversed === txt;
-}
-console.log(palindromCheck("dad"));
-console.log(palindromCheck("brother"));
+//   return reversed === txt;
+// }
+// console.log(palindromCheck("dad"));
+// console.log(palindromCheck("brother"));
 
 // MIT TASK M
 
