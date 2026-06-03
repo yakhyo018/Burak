@@ -1,20 +1,33 @@
-// MIT TASK O
+// MIT TASK N
 
-function calculateSumOfNumbers(arr: any[]): number {
-  let sum = 0;
+function objectToArray(obj: Record<string, any>) {
+  const result = [];
 
-  for (let item of arr) {
-    if (typeof item === "number") {
-      sum += item;
-    }
+  for (let key in obj) {
+    result.push([key, obj[key]]);
   }
-
-  return sum;
+  return result;
 }
 
-console.log(
-  calculateSumOfNumbers([30, "10", { son: 10 }, true, false, 35, 100]),
-);
+console.log("Result:", objectToArray({ a: 10, b: 20 }));
+
+//MIT TASK O
+
+// function calculateSumOfNumbers(arr: any[]): number {
+//   let sum = 0;
+
+//   for (let item of arr) {
+//     if (typeof item === "number") {
+//       sum += item;
+//     }
+//   }
+
+//   return sum;
+// }
+
+// console.log(
+//   calculateSumOfNumbers([30, "10", { son: 10 }, true, false, 35, 100]),
+// );
 
 // MIT TASK N
 
