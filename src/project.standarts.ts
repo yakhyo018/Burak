@@ -14,3 +14,8 @@ Rest Api
 GraphQL Api
 ...
  */
+
+/*
+  Traditonal FD  => SSR => EJS
+  Modern FD      => SPA => REACT
+ */

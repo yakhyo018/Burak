@@ -1,4 +1,4 @@
-// MIT TASK N
+// MIT TASK P
 
 function objectToArray(obj: Record<string, any>) {
   const result = [];
