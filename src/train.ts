@@ -1,15 +1,24 @@
-// MIT TASK P
+// MIT TASK Q
 
-function objectToArray(obj: Record<string, any>) {
-  const result = [];
-
-  for (let key in obj) {
-    result.push([key, obj[key]]);
-  }
-  return result;
+function hasProperty(obj: object, key: string): boolean {
+  return key in obj;
 }
 
-console.log("Result:", objectToArray({ a: 10, b: 20 }));
+console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
+console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));
+
+// MIT TASK P
+
+// function objectToArray(obj: Record<string, any>) {
+//   const result = [];
+
+//   for (let key in obj) {
+//     result.push([key, obj[key]]);
+//   }
+//   return result;
+// }
+
+// console.log("Result:", objectToArray({ a: 10, b: 20 }));
 
 //MIT TASK O
 
