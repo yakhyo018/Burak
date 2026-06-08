@@ -3,7 +3,7 @@ import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { MemberInput, LoginInput, AdminRequest } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
-import { Message } from "../libs/Errors";
+import Errors, { Message } from "../libs/Errors";
 
 const memberService = new MemberService();
 
@@ -15,6 +15,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
     // send | json | redirect | end | render
   } catch (err) {
     console.log("Error, goHome", err);
+    res.redirect("/admin");
   }
 };
 
@@ -24,6 +25,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
     res.render("login");
   } catch (err) {
     console.log("Error, getLogin", err);
+    res.redirect("/admin");
   }
 };
 
@@ -33,6 +35,7 @@ restaurantController.getSignUp = (req: Request, res: Response) => {
     res.render("signup");
   } catch (err) {
     console.log("Error, getSignUp", err);
+    res.redirect("/admin");
   }
 };
 
@@ -53,7 +56,11 @@ restaurantController.processSignup = async (
     });
   } catch (err) {
     console.log("Error, processLogin", err);
-    res.send(err);
+    const message =
+      err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
+    res.send(
+      `<script> alert("${message}"); window.location.replace('admin/login')</script>`,
+    );
   }
 };
 
@@ -73,6 +80,23 @@ restaurantController.processLogin = async (
     });
   } catch (err) {
     console.log("Error, processLogin", err);
+    const message =
+      err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
+    res.send(
+      `<script> alert("${message}"); window.location.replace('admin/login')</script>`,
+    );
+  }
+};
+
+restaurantController.logout = async (req: AdminRequest, res: Response) => {
+  try {
+    console.log("logout");
+    req.session.destroy(function () {
+      res.redirect("/admin");
+    });
+  } catch (err) {
+    console.log("Error, logout", err);
+    res.send(err);
   }
 };
 
@@ -82,7 +106,11 @@ restaurantController.testAuthSession = async (
 ) => {
   try {
     console.log("testAuthSession");
-    if (req.session?.member) res.send(`Hi ${req.session.member.memberNick}`);
+    console.log("cookie:", req.headers.cookie);
+    console.log("session:", req.session);
+
+    if (req.session?.member)
+      res.send(`<script> alert("${req.session.member.memberNick}") </script>`);
     else res.send(`<script> alert("${Message.NOT_AUTHENTICATED}")</script>`);
   } catch (err) {
     console.log("Error, testAuthSession", err);

@@ -1,11 +1,20 @@
+// MIT TASK R
+
+function calculate(str: string): number {
+  const numbers = str.split("+");
+
+  return Number(numbers[0]) + Number(numbers[1]);
+}
+console.log(calculate("1+3"));
+
 // MIT TASK Q
 
-function hasProperty(obj: object, key: string): boolean {
-  return key in obj;
-}
+// function hasProperty(obj: object, key: string): boolean {
+//   return key in obj;
+// }
 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
-console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));
 
 // MIT TASK P
 

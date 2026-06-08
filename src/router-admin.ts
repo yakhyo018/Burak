@@ -12,6 +12,7 @@ routerAdmin
   .get("/login", restaurantContoller.getLogin)
   .post("/login", restaurantContoller.processLogin);
 
+routerAdmin.get("/logout", restaurantContoller.logout);
 routerAdmin.get("/check-me", restaurantContoller.testAuthSession);
 
 /** Product */
