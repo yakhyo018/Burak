@@ -56,12 +56,12 @@ class MemberService {
 
   public async processSignup(input: MemberInput): Promise<Member> {
     console.log(3);
-    // const exist = await this.memberModel
-    //   .findOne({ memberType: MemberType.RESTAURANT })
-    //   .exec();
-    // //                              CLASS + StaticMethod > QUERY + + + + + exec() > result
-    // console.log("exist:", exist);
-    // if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
+    const exist = await this.memberModel
+      .findOne({ memberType: MemberType.RESTAURANT })
+      .exec();
+    //                              CLASS + StaticMethod > QUERY + + + + + exec() > result
+    console.log("exist:", exist);
+    if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
 
     const salt = await bcrypt.genSalt();
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
