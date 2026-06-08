@@ -5,12 +5,12 @@ import restaurantContoller from "./controllers/restaurant_controller";
 routerAdmin.get("/", restaurantContoller.goHome);
 
 routerAdmin
-  .get("/Signup", restaurantContoller.getSignUp)
-  .post("/Signup", restaurantContoller.processSignup);
+  .get("/signup", restaurantContoller.getSignUp)
+  .post("/signup", restaurantContoller.processSignup);
 
 routerAdmin
-  .get("/Login", restaurantContoller.getLogin)
-  .post("/Login", restaurantContoller.processLogin);
+  .get("/login", restaurantContoller.getLogin)
+  .post("/login", restaurantContoller.processLogin);
 
 /** Product */
 /** User */
