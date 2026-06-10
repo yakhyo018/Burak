@@ -2,12 +2,17 @@ import expres from "express";
 const routerAdmin = expres.Router();
 import restaurantContoller from "./controllers/restaurant_controller";
 import productController from "./controllers/product_controller";
+import makeUploader from "./libs/utils/uploader";
 
 /** Restaurant  */
 routerAdmin.get("/", restaurantContoller.goHome);
 routerAdmin
   .get("/signup", restaurantContoller.getSignUp)
-  .post("/signup", restaurantContoller.processSignup);
+  .post(
+    "/signup",
+    makeUploader("members").single("memberImage"),
+    restaurantContoller.processSignup,
+  );
 
 routerAdmin
   .get("/login", restaurantContoller.getLogin)
@@ -25,6 +30,7 @@ routerAdmin.get(
 routerAdmin.post(
   "/product/create",
   restaurantContoller.verifyRestaurant,
+  makeUploader("products").array("productImage", 5),
   productController.createNewProduct,
 );
 routerAdmin.post(
