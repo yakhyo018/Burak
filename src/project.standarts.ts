@@ -19,3 +19,17 @@ GraphQL Api
   Traditonal FD  => SSR => EJS
   Modern FD      => SPA => REACT
  */
+
+/* Cookie oziga hos jihati  
+   
+     request join
+
+     self destroy
+
+   */
+
+/* Validation
+  FrontEnd Validation
+  BackEnd Validation
+  DataBase Validation
+ */
