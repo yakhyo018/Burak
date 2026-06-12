@@ -1,11 +1,30 @@
+// MIT TASK S
+
+function missingNumber(nums: number[]): number {
+  const n = nums.length;
+
+  let expectedSum = 0;
+  let actualSum = 0;
+
+  for (let i = 0; i <= n; i++) {
+    expectedSum += i;
+  }
+
+  for (let i = 0; i < nums.length; i++) {
+    actualSum += nums[i];
+  }
+
+  return expectedSum - actualSum;
+}
+console.log(missingNumber([5, 2, 3, 0, 1]));
 // MIT TASK R
 
-function calculate(str: string): number {
-  const numbers = str.split("+");
+// function calculate(str: string): number {
+//   const numbers = str.split("+");
 
-  return Number(numbers[0]) + Number(numbers[1]);
-}
-console.log(calculate("1+3"));
+//   return Number(numbers[0]) + Number(numbers[1]);
+// }
+// console.log(calculate("1+3"));
 
 // MIT TASK Q
 

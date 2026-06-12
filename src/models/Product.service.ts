@@ -1,10 +1,10 @@
 import ProductModel from "../schema/Product.model";
 
 class ProductService {
-  private readonly ProductModel;
+  private readonly productModel;
 
   constructor() {
-    this.ProductModel = ProductModel;
+    this.productModel = ProductModel;
   }
 }
 
