@@ -44,7 +44,7 @@ const productSchema = new Schema(
       type: String,
     },
     productImages: {
-      type: Array,
+      type: [String],
       default: [],
     },
     productViews: {
