@@ -5,6 +5,7 @@ import {
   ProductSize,
   ProductVolume,
 } from "../libs/enums/product.enum";
+import { Product } from "../libs/types/product";
 
 const productSchema = new Schema(
   {
@@ -59,4 +60,4 @@ productSchema.index(
   { unique: true },
 );
 
-export default mongoose.model("Product", productSchema);
+export default mongoose.model<Product>("Product", productSchema);
