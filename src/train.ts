@@ -1,23 +1,52 @@
+// MIT TASK T
+
+function mergeSortedArrays(array1: number[], array2: number[]): number[] {
+  const result: number[] = [];
+  let j = 0;
+  let i = 0;
+  while (i < array1.length && j < array2.length) {
+    if (array1[i] <= array2[j]) {
+      result.push(array1[i]);
+      i++;
+    } else {
+      result.push(array2[j]);
+      j++;
+    }
+  }
+
+  while (i < array1.length) {
+    result.push(array1[i]);
+    i++;
+  }
+
+  while (j < array2.length) {
+    result.push(array2[j]);
+    j++;
+  }
+  return result;
+}
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+
 // MIT TASK S
 
-function missingNumber(nums: number[]): number {
-  const n = nums.length;
+// function missingNumber(nums: number[]): number {
+//   const n = nums.length;
 
-  let expectedSum = 0;
-  let actualSum = 0;
+//   let expectedSum = 0;
+//   let actualSum = 0;
 
-  for (let i = 0; i <= n; i++) {
-    expectedSum += i;
-  }
+//   for (let i = 0; i <= n; i++) {
+//     expectedSum += i;
+//   }
 
-  for (let i = 0; i < nums.length; i++) {
-    actualSum += nums[i];
-  }
+//   for (let i = 0; i < nums.length; i++) {
+//     actualSum += nums[i];
+//   }
 
-  return expectedSum - actualSum;
-}
-console.log(missingNumber([5, 2, 3, 0, 1]));
-// MIT TASK R
+//   return expectedSum - actualSum;
+// }
+// console.log(missingNumber([5, 2, 3, 0, 1]));
+// // MIT TASK R
 
 // function calculate(str: string): number {
 //   const numbers = str.split("+");
