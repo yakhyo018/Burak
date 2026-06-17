@@ -1,31 +1,42 @@
-// MIT TASK T
+// MIT TASK U
+function sumOdds(num: number): number {
+  let count = 0;
 
-function mergeSortedArrays(array1: number[], array2: number[]): number[] {
-  const result: number[] = [];
-  let j = 0;
-  let i = 0;
-  while (i < array1.length && j < array2.length) {
-    if (array1[i] <= array2[j]) {
-      result.push(array1[i]);
-      i++;
-    } else {
-      result.push(array2[j]);
-      j++;
-    }
+  for (let i = 1; i < num; i++) {
+    if (i % 2! == 0) count++;
   }
 
-  while (i < array1.length) {
-    result.push(array1[i]);
-    i++;
-  }
-
-  while (j < array2.length) {
-    result.push(array2[j]);
-    j++;
-  }
-  return result;
+  return count;
 }
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+console.log(sumOdds(11));
+
+// MIT TASK T
+// function mergeSortedArrays(array1: number[], array2: number[]): number[] {
+//   const result: number[] = [];
+//   let j = 0;
+//   let i = 0;
+//   while (i < array1.length && j < array2.length) {
+//     if (array1[i] <= array2[j]) {
+//       result.push(array1[i]);
+//       i++;
+//     } else {
+//       result.push(array2[j]);
+//       j++;
+//     }
+//   }
+
+//   while (i < array1.length) {
+//     result.push(array1[i]);
+//     i++;
+//   }
+
+//   while (j < array2.length) {
+//     result.push(array2[j]);
+//     j++;
+//   }
+//   return result;
+// }
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
 
 // MIT TASK S
 
