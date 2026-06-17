@@ -3,6 +3,7 @@ const routerAdmin = expres.Router();
 import restaurantContoller from "./controllers/restaurant_controller";
 import productController from "./controllers/product_controller";
 import makeUploader from "./libs/utils/uploader";
+import restaurantController from "./controllers/restaurant_controller";
 
 /** Restaurant  */
 routerAdmin.get("/", restaurantContoller.goHome);
@@ -40,5 +41,10 @@ routerAdmin.post(
 );
 
 /** User */
+routerAdmin.get(
+  "/user/all",
+  restaurantContoller.verifyRestaurant,
+  restaurantController.getUsers,
+);
 
 export default routerAdmin;

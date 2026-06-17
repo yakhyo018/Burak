@@ -4,7 +4,7 @@ import MemberService from "../models/Member.service";
 import { MemberInput, LoginInput, AdminRequest } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 import Errors, { HttpCode, Message } from "../libs/Errors";
-import { error } from "console";
+import { error, log } from "console";
 
 const memberService = new MemberService();
 
@@ -102,6 +102,29 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
   } catch (err) {
     console.log("Error, logout", err);
     res.send(err);
+  }
+};
+
+restaurantController.getUsers = async (req: Request, res: Response) => {
+  try {
+    console.log("getUser");
+
+    const result = await memberService.getUsers();
+    console.log("result", result);
+    res.render("users", { users: result });
+  } catch (err) {
+    console.log("Error, getUser", err);
+    res.redirect("/admin/login");
+  }
+};
+
+restaurantController.updateChoosenProduct = (req: Request, res: Response) => {
+  try {
+    console.log("updateChoosenProduct");
+    res.render("login");
+  } catch (err) {
+    console.log("Error, updateChoosenProduct", err);
+    res.redirect("/admin");
   }
 };
 
