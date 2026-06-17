@@ -118,13 +118,15 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
   }
 };
 
-restaurantController.updateChoosenProduct = (req: Request, res: Response) => {
+restaurantController.updateChosenUser = async (req: Request, res: Response) => {
   try {
-    console.log("updateChoosenProduct");
-    res.render("login");
+    console.log("updateChoosenUser");
+    const result = await memberService.updateChosenUser(req.body);
+    res.status(HttpCode.OK).json({ data: result });
   } catch (err) {
-    console.log("Error, updateChoosenProduct", err);
-    res.redirect("/admin");
+    console.log("Error, updateChoosenUser", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
+    else res.status(Errors.standards.code).json(Errors.standards);
   }
 };
 
