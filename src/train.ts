@@ -1,3 +1,21 @@
+// MIT Task V
+
+function countChars(str: string): Record<string, number> {
+  const result: Record<string, number> = {};
+
+  for (const char of str) {
+    if (result[char]) {
+      result[char]++;
+    } else {
+      result[char] = 1;
+    }
+  }
+
+  return result;
+}
+
+console.log(countChars("tog'ri boshliq tanlang va koproq hato qiling"));
+
 // MIT TASK U
 // function sumOdds(num: number): number {
 //   let count = 0;
