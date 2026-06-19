@@ -1,14 +1,14 @@
 // MIT TASK U
-function sumOdds(num: number): number {
-  let count = 0;
+// function sumOdds(num: number): number {
+//   let count = 0;
 
-  for (let i = 1; i < num; i++) {
-    if (i % 2! == 0) count++;
-  }
+//   for (let i = 1; i < num; i++) {
+//     if (i % 2! == 0) count++;
+//   }
 
-  return count;
-}
-console.log(sumOdds(11));
+//   return count;
+// }
+// console.log(sumOdds(11));
 
 // MIT TASK T
 // function mergeSortedArrays(array1: number[], array2: number[]): number[] {
