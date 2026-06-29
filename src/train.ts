@@ -1,38 +1,45 @@
+// MIT TASK Y
+
+function findIntersection(array1: number[], array2: number[]): number[] {
+  return array1.filter((item) => array2.includes(item));
+}
+console.log(findIntersection([1, 2, 3, 4, 5], [2, 4, 5, 3]));
+
 // MIT TASK X
 
-function countOccurences(obj: Record<string, any>, key: string): number {
-  let count = 0;
+// function countOccurences(obj: Record<string, any>, key: string): number {
+//   let count = 0;
 
-  for (const k in obj) {
-    if (k === key) {
-      count++;
-    }
-    if (typeof obj[k] === "object" && obj[k] !== null) {
-      count += countOccurences(obj[k], key);
-    }
-  }
-  return count;
-}
+//   for (const k in obj) {
+//     if (k === key) {
+//       count++;
+//     }
+//     if (typeof obj[k] === "object" && obj[k] !== null) {
+//       count += countOccurences(obj[k], key);
+//     }
+//   }
+//   return count;
+// }
 
-const car = {
-  model: "Bugatti",
-  steer: {
-    model: "HANKOOK",
-    size: 30,
-  },
-};
-console.log(
-  countOccurences(
-    {
-      model: "Bugatti",
-      steer: {
-        model: "HANKOOK",
-        size: 30,
-      },
-    },
-    "model",
-  ),
-);
+// const car = {
+//   model: "Bugatti",
+//   steer: {
+//     model: "HANKOOK",
+//     size: 30,
+//   },
+// };
+// console.log(
+//   countOccurences(
+//     {
+//       model: "Bugatti",
+//       steer: {
+//         model: "HANKOOK",
+//         size: 30,
+//       },
+//     },
+//     "model",
+//   ),
+// );
 
 // MIT TASK W
 
