@@ -1,9 +1,20 @@
+// MIT TASK Z
+
+function sumEvens(arr: number[]): number {
+  return arr
+    .filter((num: number) => num % 2 === 0)
+    .reduce((sum: number, num: number) => sum + num, 0);
+}
+console.log(sumEvens([1, 2, 3]));
+console.log(sumEvens([1, 2, 3, 4]));
+console.log(sumEvens([1, 3, 5]));
+
 // MIT TASK Y
 
-function findIntersection(array1: number[], array2: number[]): number[] {
-  return array1.filter((item) => array2.includes(item));
-}
-console.log(findIntersection([1, 2, 3, 4, 5], [2, 4, 5, 3]));
+// function findIntersection(array1: number[], array2: number[]): number[] {
+//   return array1.filter((item) => array2.includes(item));
+// }
+// console.log(findIntersection([1, 2, 3, 4, 5], [2, 4, 5, 3]));
 
 // MIT TASK X
 
