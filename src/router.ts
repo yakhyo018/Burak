@@ -9,7 +9,11 @@ router.post(
   memberContoller.verifyAuth,
   memberContoller.logout,
 );
-router.get("/member/detail", memberContoller.verifyAuth);
+router.get(
+  "/member/detail",
+  memberContoller.verifyAuth,
+  memberContoller.getMemberDetail,
+);
 
 /** Product **/
 

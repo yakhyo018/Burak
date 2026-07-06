@@ -1,3 +1,4 @@
+import { publicDecrypt } from "crypto";
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import { MemberStatus, MemberType } from "../libs/enums/member.enum";
 import Errors, { HttpCode, Message } from "../libs/Errors";
@@ -9,6 +10,7 @@ import {
 } from "../libs/types/member";
 import MemberModel from "../schema/Member.model";
 import * as bcrypt from "bcryptjs";
+import { promises } from "dns";
 
 class MemberService {
   private readonly memberModel;
@@ -60,6 +62,19 @@ class MemberService {
     const result = await this.memberModel.findById(member._id).lean().exec();
 
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
+
+    return result;
+  }
+
+  public async getMemberDetail(member: Member): Promise<Member> {
+    const memberId = shapeIntoMongooseObjectId(member._id);
+    const result = await this.memberModel
+      .findOne({
+        _id: memberId,
+        memberStatus: MemberStatus.ACTIVE,
+      })
+      .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
     return result;
   }
