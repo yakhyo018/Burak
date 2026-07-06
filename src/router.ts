@@ -2,8 +2,12 @@ import expres from "express";
 const router = expres.Router();
 import memberContoller from "./controllers/member_controller";
 
-router.post("/Login", memberContoller.Login);
+router.post("/member/Login", memberContoller.Login);
+router.post("/member/Signup", memberContoller.Signup);
+router.get("/member/detail", memberContoller.verifyAuth);
 
-router.post("/Signup", memberContoller.Signup);
+/** Product **/
+
+/** Orders **/
 
 export default router;
