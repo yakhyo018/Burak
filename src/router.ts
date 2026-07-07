@@ -1,6 +1,7 @@
 import expres from "express";
 const router = expres.Router();
 import memberContoller from "./controllers/member_controller";
+import makeUploader from "./libs/utils/uploader";
 
 router.post("/member/Login", memberContoller.Login);
 router.post("/member/Signup", memberContoller.Signup);
@@ -13,6 +14,12 @@ router.get(
   "/member/detail",
   memberContoller.verifyAuth,
   memberContoller.getMemberDetail,
+);
+router.post(
+  "/member/update",
+  memberContoller.verifyAuth,
+  makeUploader("members").single("memberImage"),
+  memberContoller.updateMember,
 );
 
 /** Product **/
