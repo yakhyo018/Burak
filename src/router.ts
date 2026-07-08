@@ -21,6 +21,7 @@ router.post(
   makeUploader("members").single("memberImage"),
   memberContoller.updateMember,
 );
+router.get("/member/top-users", memberContoller.getTopUSers);
 
 /** Product **/
 
