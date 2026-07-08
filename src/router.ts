@@ -3,6 +3,8 @@ const router = expres.Router();
 import memberContoller from "./controllers/member_controller";
 import makeUploader from "./libs/utils/uploader";
 
+/** Member **/
+router.get("/member/restaurant", memberContoller.getRestaurant);
 router.post("/member/Login", memberContoller.Login);
 router.post("/member/Signup", memberContoller.Signup);
 router.post(

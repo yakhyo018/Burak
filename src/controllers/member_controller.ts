@@ -12,11 +12,26 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 import AuthService from "../models/Auth.service";
 import { AUTH_TIMER } from "../libs/config";
 import { log } from "console";
+import { accessSync } from "fs";
 
 const memberService = new MemberService();
 const authService = new AuthService();
 
 const memberContoller: T = {};
+
+memberContoller.getRestaurant = async (req: Request, res: Response) => {
+  try {
+    console.log("getRestaurant");
+    const result = await memberService.getRestaurant();
+
+    res.status(HttpCode.OK).json(result);
+  } catch (err) {
+    console.log("Error, getRestaurant", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
+    else res.status(Errors.standards.code).json(Errors.standards);
+  }
+};
+
 memberContoller.Signup = async (req: Request, res: Response) => {
   try {
     console.log("Signup");
