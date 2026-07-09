@@ -2,6 +2,7 @@ import expres from "express";
 const router = expres.Router();
 import memberContoller from "./controllers/member_controller";
 import makeUploader from "./libs/utils/uploader";
+import productController from "./controllers/product_controller";
 
 /** Member **/
 router.get("/member/restaurant", memberContoller.getRestaurant);
@@ -26,6 +27,7 @@ router.post(
 router.get("/member/top-users", memberContoller.getTopUSers);
 
 /** Product **/
+router.get("/product/all", productController.getProducts);
 
 /** Orders **/
 
