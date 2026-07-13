@@ -3,6 +3,7 @@ const router = expres.Router();
 import memberContoller from "./controllers/member_controller";
 import makeUploader from "./libs/utils/uploader";
 import productController from "./controllers/product_controller";
+import orderController from "./controllers/order_controller";
 
 /** Member **/
 router.get("/member/restaurant", memberContoller.getRestaurant);
@@ -35,5 +36,10 @@ router.get(
 );
 
 /** Orders **/
+router.post(
+  "/order/create",
+  memberContoller.verifyAuth,
+  orderController.createOrder,
+);
 
 export default router;
