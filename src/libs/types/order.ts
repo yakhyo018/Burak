@@ -22,7 +22,7 @@ export interface Order {
   updatedAt: Date;
   /** from aggregations */
   orderItems: OrderItem[];
-  prouctData: Product[];
+  productData: Product[];
 }
 
 export interface OrderItemInput {
